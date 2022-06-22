@@ -34,8 +34,8 @@ from cassandra.auth import PlainTextAuthProvider
 
 
 * In the INSTALLED_APPS section - <br />
-- Add our app - ‘blog’<br />
-- Add cassandra engine - ‘django-cassandra-engine’<br />
+1 Add our app - ‘blog’<br />
+2 Add cassandra engine - ‘django-cassandra-engine’<br />
 
 ## Configure the database<br />
 
