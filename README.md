@@ -101,8 +101,9 @@ class PostModel(DjangoCassandraModel):<br />
  ```
 
 <sub>
-    Expected Output - Creating keyspace health_blog [CONNECTION default] ..
-Syncing blog.models.PostModel
+    ***Expected Output - Creating keyspace health_blog [CONNECTION default] ..
+	<br />
+	Syncing blog.models.PostModel***
 </sub>
 
 <br />
