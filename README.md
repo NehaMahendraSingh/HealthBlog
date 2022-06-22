@@ -97,7 +97,7 @@ class PostModel(DjangoCassandraModel):<br />
 * On your terminal from the project’s root directory : 
 
  ```
- python3 manage.py syncdb<br />
+ python3 manage.py syncdb
  ```
  ***Expected Output - 
  <br />
