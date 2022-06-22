@@ -60,7 +60,7 @@ In the INSTALLED_APPS section - <br />
 	
 ```
 
-Create a Django model in our app and sync it with our database<br />
+* Create a Django model in our app and sync it with our database<br />
 #blog>models.py
 
 ```
