@@ -3,24 +3,27 @@
 * AstraDB - Create a new Database 
 * Download 'django-cassandra-engine' from (https://pypi.org/project/django-cassandra-engine/)   
 ```
->Pip3 install django-cassandra-engine
+Pip3 install django-cassandra-engine
 ```
 
 ## Building a Django Project<br />
-* Start a new Django project “healthblog”
+* Start a new Django project 
 ```
->django-admin startproject healthblog<br />
+django-admin startproject <project_name>
 ```
 * Create a new app called “blog” from the root directory of the project 
 ```
->django-admin startapp blog.<br />
+django-admin startapp <app_name>
 ```
 
 ## Connect Database with Django project<br />
 * Connect using the 'Python driver'. <br />
-* Follow steps 1,2 in from 'Astra Connec't I.e Download the Cassandra-driver for integration of AstraDB with python > (pip3 install cassandra-driver)<br />
-* Download the secure connect bundle provided by AstraDB and move it to the root directory of our project.<br />
-* Create a 'Database administrator token'<br />
+* Follow steps 1,2 in from 'Astra Connec't I.e Download the Cassandra-driver for integration of AstraDB with python 
+```
+pip3 install cassandra-driver
+```
+* Download the 'secure connect bundle' provided by AstraDB and move it to the root directory of our project.<br />
+* Create a 'Database administrator token'. <br />
 >Organization Settings -> Select role -> “database administrator” .<br />
 * Download the token and move it to the root directory.<br />
 
