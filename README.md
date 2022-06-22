@@ -41,7 +41,7 @@ In the INSTALLED_APPS section - <br />
 
 ## Configure the database<br />
 
-‘ENGINE’ : ‘django-cassandra-engine’<br />
+‘ENGINE’ : ‘django-cassandra-engine'
 
 ‘NAME’ : ('key-space') from the database
 
@@ -67,8 +67,7 @@ In the INSTALLED_APPS section - <br />
 	
 
 Create a Django model in our app and sync it with our database<br />
-#blog>models.py<br />
-
+#blog>models.py
 
 
 from django.db import models
@@ -107,9 +106,7 @@ Syncing blog.models.PostModel
 
 ```
 ````
- 
-
-Now we can try by running a query from Astra CQL console:<br />
+* Now we can try by running a query from Astra CQL console:
 
 use healthblog;
 
