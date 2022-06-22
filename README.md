@@ -47,12 +47,9 @@ In the INSTALLED_APPS section - <br />
 
 ```
 'OPTIONS': 
-
-            'connection':
-	    
+            'connection':	    
                 'auth_provider': PlainTextAuthProvider(('CLIENT ID', 'CLIENT SECRET’),
-		
-		
+				
 #Cloud - connect to the secure bundle we saved in the root directory
 
                 'cloud': {
