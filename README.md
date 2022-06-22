@@ -43,13 +43,12 @@ In the INSTALLED_APPS section - <br />
 ‘NAME’ : ('key-space') from the database
 ```
 
-#connect using client ID and secret from the token we saved in the root directory<br />
+#connect using client ID and secret from the token we saved in the root directory
+
 
 
 'OPTIONS': 
-
             'connection':
-	    
                 'auth_provider': PlainTextAuthProvider(('CLIENT ID', 'CLIENT SECRET’),
 		
 		
