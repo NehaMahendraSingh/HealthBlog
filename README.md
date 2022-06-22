@@ -32,10 +32,8 @@ In the INSTALLED_APPS section - <br />
 
 **Let’s configure the database**<br />
 ‘ENGINE’ : ‘django-cassandra-engine’<br />
-‘NAME’ : <key-space><br />
+‘NAME’ : #key-space from the database
 #connect using client ID and secret from the token we saved in the root directory<br />
-
-
 'OPTIONS': {<br />
             'connection': {<br />
                 'auth_provider': PlainTextAuthProvider(('CLIENT ID', 'CLIENT SECRET’),<br />
