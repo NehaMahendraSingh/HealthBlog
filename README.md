@@ -20,13 +20,20 @@
 
 ###### Open this project in any IDE of your choice<br />
 
+
 #healthblog>Settings.py<br />
-<br />
+
+
 We need to import :<br />
-'''
+
+
 from cassandra import ConsistencyLevel<br />
+
 from cassandra.cluster import Cluster<br />
-from cassandra.auth import PlainTextAuthProvider<br />'''
+
+from cassandra.auth import PlainTextAuthProvider<br />
+
+
 
 In the INSTALLED_APPS section - <br />
 * Add our app - ‘blog’<br />
