@@ -40,8 +40,11 @@ In the INSTALLED_APPS section - <br />
 * Add cassandra engine - ‘django-cassandra-engine’<br />
 
 ## Configure the database<br />
+
 ‘ENGINE’ : ‘django-cassandra-engine’<br />
-‘NAME’ : #key-space from the database
+
+‘NAME’ : ('key-space') from the database
+
 #connect using client ID and secret from the token we saved in the root directory<br />
 
 'OPTIONS': 
