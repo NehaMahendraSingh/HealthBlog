@@ -18,7 +18,7 @@ django-admin startapp <app_name>
 
 ## Connect Database with Django project<br />
 * Connect using the `Python driver`. <br />
-* Follow steps 1,2 in from 'Astra Connec't I.e Download the `Cassandra-driver` for integration of AstraDB with python 
+* Follow steps 1,2 in from `Astra Connect` I.e Download the `Cassandra-driver` for integration of AstraDB with python 
 ```
 pip3 install cassandra-driver
 ```
@@ -114,6 +114,98 @@ class PostModel(DjangoCassandraModel):<br />
 use healthblog;
 SELECT * FROM PostModel;
 ```
+
+* Test out by creating a new object
+
+#Open Shell and run the following commands
+
+```
+Python3 manage.py shell
+>>>From blog.models import PostModel’
+>>> p = PostModel.objects.create (title = ‘ ‘, body = ‘’)
+>>>p.save()
+```
+
+* Rerun the query on CQL to verify
+
+## Frontend
+
+* Set-up the template and static files to render front-end <br />
+  Please copy it from the repo <br />
+
+
+
+* Set-up the base directories for templates and static files <br />
+#healthblog > Settings.py > templates
+```
+‘DIRS’ : [os.path.join(BASE_DIR, ‘templates’)]
+```
+#healthblog > Settings.py > STATIC_URL
+
+```
+STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’),
+STATICFILES_DIRS = (os.path.join(BASE_DIR, ‘static’)
+```
+
+* Create a new file in the app: <urls.py> to specify the URLs <br />
+
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name=‘home'),  
+    path('newpost', views.newpost, name='newpost'),
+    path('posts/<str:pk>', views.posts, name='posts'),
+]
+```
+
+#blog > views.py
+
+```
+from django.shortcuts import render, redirect
+from .models import PostModel
+
+# Create your views here.
+def home(request):
+    posts_list = sorted(list(PostModel.objects.all()), key=lambda p: p.created_at)
+    return render(request, 'index.html', {'posts': posts_list})
+
+def posts(request, pk):
+    post = PostModel.objects.get(id=pk)
+    return render(request, 'post.html', {'post':post})
+
+def newpost(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        body = request.POST['body']
+
+        new_post = PostModel.objects.create(title=title, body=body)
+        new_post.save
+        return redirect('/')
+    else:
+        return render(request, ‘newpost.html')
+```
+
+#healthblog > urls.py 
+```
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('blog.urls'))
+]
+```
+
+*To run the project execute the below command:
+```
+Python3 manage.py rumserver
+```
+
+
+
+
 
 
 
