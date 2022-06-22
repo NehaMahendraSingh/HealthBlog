@@ -82,7 +82,7 @@ from django_cassandra_engine.models import DjangoCassandraModel
 
 
 ###### Create your models here.<br />
-```
+
 
 class PostModel(DjangoCassandraModel):<br />
     id = columns.UUID(primary_key=True, default=uuid.uuid4) <br />
@@ -90,7 +90,7 @@ class PostModel(DjangoCassandraModel):<br />
     body = columns.Text(required=True)<br />
     created_at = columns.DateTime(default=datetime.now)<br />
     
-    ```
+  
     
   
 
@@ -100,13 +100,14 @@ class PostModel(DjangoCassandraModel):<br />
 
 ````
 ```
-
     Expected Output - Creating keyspace health_blog [CONNECTION default] ..
 Syncing blog.models.PostModel
-
 ```
 ````
-* Now we can try by running a query from Astra CQL console:
+<br />
+
+* Now we can try by running a query from Astra CQL console:<br />
+
 
 use healthblog;
 
