@@ -23,7 +23,7 @@
 
 #healthblog>Settings.py<br />
 
-We need to import :<br />
+* Import the following :<br />
 
 ```
 from cassandra import ConsistencyLevel
@@ -33,9 +33,9 @@ from cassandra.auth import PlainTextAuthProvider
 
 
 
-In the INSTALLED_APPS section - <br />
-* Add our app - ‘blog’<br />
-* Add cassandra engine - ‘django-cassandra-engine’<br />
+* In the INSTALLED_APPS section - <br />
+- Add our app - ‘blog’<br />
+- Add cassandra engine - ‘django-cassandra-engine’<br />
 
 ## Configure the database<br />
 
