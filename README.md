@@ -28,7 +28,6 @@ We need to import :<br />
 from cassandra import ConsistencyLevel
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
-
 ```
 
 
@@ -43,7 +42,6 @@ In the INSTALLED_APPS section - <br />
 ‘ENGINE’ : ‘django-cassandra-engine'
 
 ‘NAME’ : ('key-space') from the database
-
 ```
 
 #connect using client ID and secret from the token we saved in the root directory<br />
@@ -85,7 +83,6 @@ class PostModel(DjangoCassandraModel):<br />
     title = columns.Text(required=True)<br />
     body = columns.Text(required=True)<br />
     created_at = columns.DateTime(default=datetime.now)<br />
-    
 ```
     
 
@@ -108,7 +105,6 @@ Syncing blog.models.PostModel
 ```
 use healthblog;
 SELECT * FROM PostModel;
-
 ```
 
 
