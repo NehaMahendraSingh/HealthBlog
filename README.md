@@ -45,8 +45,7 @@ In the INSTALLED_APPS section - <br />
 
 #connect using client ID and secret from the token we saved in the root directory
 
-
-
+```
 'OPTIONS': 
 
             'connection':
@@ -62,6 +61,7 @@ In the INSTALLED_APPS section - <br />
             }   
         }
 	
+```
 
 Create a Django model in our app and sync it with our database<br />
 #blog>models.py
