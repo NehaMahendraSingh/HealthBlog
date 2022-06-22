@@ -1,11 +1,11 @@
 # HealthBlog
-**Prerequisites
+**Prerequisites**<br />
 1) AstraDB - Create a new Database 
 2) Download django-cassandra-engine from https://pypi.org/project/django-cassandra-engine/        
 Pip3 install django-cassandra-engine
 #Allows us to integrate Cassandra with Django
 
-**Building a Django Project
+**Building a Django Project**<br />
 1) Start a new Django project “healthblog”- django-admin startproject healthblog<br />
 2) Create a new app called “blog” from the root directory of the project - django-admin startapp blog.<br />
 
@@ -26,7 +26,7 @@ from cassandra.cluster import Cluster<br />
 from cassandra.auth import PlainTextAuthProvider<br />
 
 
-In the INSTALLED_APPS section - 
+In the INSTALLED_APPS section - <br />
 1)Add our app - ‘blog’<br />
 2)Add cassandra engine - ‘django-cassandra-engine’<br />
 
