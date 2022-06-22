@@ -25,11 +25,9 @@
 We need to import :<br />
 
 ```
-
 from cassandra import ConsistencyLevel
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
-
 
 ```
 
@@ -41,9 +39,12 @@ In the INSTALLED_APPS section - <br />
 
 ## Configure the database<br />
 
+```
 ‘ENGINE’ : ‘django-cassandra-engine'
 
 ‘NAME’ : ('key-space') from the database
+
+```
 
 #connect using client ID and secret from the token we saved in the root directory<br />
 
@@ -70,13 +71,11 @@ Create a Django model in our app and sync it with our database<br />
 #blog>models.py
 
 ```
-
 from django.db import models
 import uuid 
 from datetime import datetime
 from cassandra.cqlengine import columns
 from django_cassandra_engine.models import DjangoCassandraModel
-
 ```
 
 ###### Create your models here.<br />
@@ -106,10 +105,11 @@ Syncing blog.models.PostModel
 
 * Now we can try by running a query from Astra CQL console: <br />
 
-
+```
 use healthblog;
-
 SELECT * FROM PostModel;
+
+```
 
 
 
