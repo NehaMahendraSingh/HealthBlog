@@ -48,7 +48,9 @@ In the INSTALLED_APPS section - <br />
 
 
 'OPTIONS': 
+
             'connection':
+	    
                 'auth_provider': PlainTextAuthProvider(('CLIENT ID', 'CLIENT SECRET’),
 		
 		
