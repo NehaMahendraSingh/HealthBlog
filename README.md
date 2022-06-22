@@ -96,14 +96,15 @@ class PostModel(DjangoCassandraModel):<br />
 
 * On your terminal from the project’s root directory : 
 
-> python3 manage.py syncdb<br />
+ ```
+ python3 manage.py syncdb<br />
+ ```
 
-````
-```
+<sub>
     Expected Output - Creating keyspace health_blog [CONNECTION default] ..
 Syncing blog.models.PostModel
-```
-````
+</sub>
+
 <br />
 
 * Now we can try by running a query from Astra CQL console: <br />
