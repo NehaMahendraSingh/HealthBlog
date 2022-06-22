@@ -69,6 +69,7 @@ In the INSTALLED_APPS section - <br />
 Create a Django model in our app and sync it with our database<br />
 #blog>models.py
 
+```
 
 from django.db import models
 
@@ -79,6 +80,8 @@ from datetime import datetime
 from cassandra.cqlengine import columns
 
 from django_cassandra_engine.models import DjangoCassandraModel
+
+```
 
 
 ###### Create your models here.<br />
@@ -93,13 +96,12 @@ class PostModel(DjangoCassandraModel):<br />
     
 ```
     
-  
-    
-  
 
 * Let's sync our model with AstraDB and check if all the connections are set right.<br />
 
-* On your terminal from the project’s root directory : python3 manage.py syncdb<br />
+* On your terminal from the project’s root directory : 
+
+> python3 manage.py syncdb<br />
 
 ````
 ```
@@ -109,9 +111,7 @@ Syncing blog.models.PostModel
 ````
 <br />
 
-* Now we can try by running a query from Astra CQL console:
-
-
+* Now we can try by running a query from Astra CQL console: <br />
 
 
 use healthblog;
