@@ -14,25 +14,25 @@
 * Follow steps 1,2 in from 'Astra Connec't I.e Download the Cassandra-driver for integration of AstraDB with python > (pip3 install cassandra-driver)<br />
 * Download the secure connect bundle provided by AstraDB and move it to the root directory of our project.<br />
 * Create a 'Database administrator token'<br />
-	>Organization Settings -> Select role -> “database administrator” .<br />
+>Organization Settings -> Select role -> “database administrator” .<br />
 * Download the token and move it to the root directory.<br />
 
 
 ###### Open this project in any IDE of your choice<br />
 
 #healthblog>Settings.py<br />
+<br />
 We need to import :<br />
 '''
 from cassandra import ConsistencyLevel<br />
 from cassandra.cluster import Cluster<br />
 from cassandra.auth import PlainTextAuthProvider<br />'''
 
-
 In the INSTALLED_APPS section - <br />
 * Add our app - ‘blog’<br />
 * Add cassandra engine - ‘django-cassandra-engine’<br />
 
-###### Let’s configure the database<br />
+## Configure the database<br />
 ‘ENGINE’ : ‘django-cassandra-engine’<br />
 ‘NAME’ : #key-space from the database
 #connect using client ID and secret from the token we saved in the root directory<br />
