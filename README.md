@@ -1,15 +1,15 @@
 # HealthBlog
-######Prerequisites<br />
+###### Prerequisites<br />
 * AstraDB - Create a new Database 
 * Download 'django-cassandra-engine' from (https://pypi.org/project/django-cassandra-engine/)   
 >Pip3 install django-cassandra-engine
 #Allows us to integrate Cassandra with Django
 
-######Building a Django Project<br />
+###### Building a Django Project<br />
 * Start a new Django project “healthblog”- django-admin startproject healthblog<br />
 * Create a new app called “blog” from the root directory of the project - django-admin startapp blog.<br />
 
-######Connect Database with our Django project<br />
+###### Connect Database with our Django project<br />
 * Connect using the 'Python driver'. <br />
 * Follow steps 1,2 in from 'Astra Connec't I.e Download the Cassandra-driver for integration of AstraDB with python > (pip3 install cassandra-driver)<br />
 * Download the secure connect bundle provided by AstraDB and move it to the root directory of our project.<br />
@@ -18,7 +18,7 @@
 * Download the token and move it to the root directory.<br />
 
 
-######Open this project in any IDE of your choice<br />
+###### Open this project in any IDE of your choice<br />
 #healthblog>Settings.py<br />
 We need to import :<br />
 '''
@@ -31,7 +31,7 @@ In the INSTALLED_APPS section - <br />
 * Add our app - ‘blog’<br />
 * Add cassandra engine - ‘django-cassandra-engine’<br />
 
-######Let’s configure the database<br />
+###### Let’s configure the database<br />
 ‘ENGINE’ : ‘django-cassandra-engine’<br />
 ‘NAME’ : #key-space from the database
 #connect using client ID and secret from the token we saved in the root directory<br />
