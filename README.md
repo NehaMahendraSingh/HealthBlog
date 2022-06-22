@@ -100,6 +100,7 @@ class PostModel(DjangoCassandraModel):<br />
  python3 manage.py syncdb<br />
  ```
  ***Expected Output - 
+ <br />
  Creating keyspace health_blog [CONNECTION default] ..
 	<br />
     Syncing blog.models.PostModel***
