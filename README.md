@@ -5,11 +5,11 @@
 >Pip3 install django-cassandra-engine
 #Allows us to integrate Cassandra with Django
 
-###### Building a Django Project<br />
+## Building a Django Project<br />
 * Start a new Django project “healthblog”- django-admin startproject healthblog<br />
 * Create a new app called “blog” from the root directory of the project - django-admin startapp blog.<br />
 
-###### Connect Database with our Django project<br />
+## Connect Database with our Django project<br />
 * Connect using the 'Python driver'. <br />
 * Follow steps 1,2 in from 'Astra Connec't I.e Download the Cassandra-driver for integration of AstraDB with python > (pip3 install cassandra-driver)<br />
 * Download the secure connect bundle provided by AstraDB and move it to the root directory of our project.<br />
@@ -19,6 +19,7 @@
 
 
 ###### Open this project in any IDE of your choice<br />
+
 #healthblog>Settings.py<br />
 We need to import :<br />
 '''
