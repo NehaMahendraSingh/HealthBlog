@@ -82,8 +82,6 @@ from cassandra.cqlengine import columns
 from django_cassandra_engine.models import DjangoCassandraModel
 
 
-
-
 ###### Create your models here.<br />
 ```
 
@@ -94,18 +92,28 @@ class PostModel(DjangoCassandraModel):<br />
     created_at = columns.DateTime(default=datetime.now)<br />
     
     ```
+    
+  
 
-Let's sync our model with AstraDB and check if all the connections are set right.<br />
+* Let's sync our model with AstraDB and check if all the connections are set right.<br />
 
-On your terminal from the project’s root directory : python3 manage.py syncdb<br />
+* On your terminal from the project’s root directory : python3 manage.py syncdb<br />
 
+````
 ```
+
     Expected Output - Creating keyspace health_blog [CONNECTION default] ..
 Syncing blog.models.PostModel
-   
-   ```
+
+```
+````
+ 
 
 Now we can try by running a query from Astra CQL console:<br />
-use healthblog;<br />
-SELECT * FROM PostModel;<br />
+
+use healthblog;
+
+SELECT * FROM PostModel;
+
+
 
