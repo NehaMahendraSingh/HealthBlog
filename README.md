@@ -20,18 +20,18 @@
 
 ###### Open this project in any IDE of your choice<br />
 
-
 #healthblog>Settings.py<br />
-
 
 We need to import :<br />
 
+```
 
-from cassandra import ConsistencyLevel<br />
+from cassandra import ConsistencyLevel
+from cassandra.cluster import Cluster
+from cassandra.auth import PlainTextAuthProvider
 
-from cassandra.cluster import Cluster<br />
 
-from cassandra.auth import PlainTextAuthProvider<br />
+```
 
 
 
@@ -72,22 +72,15 @@ Create a Django model in our app and sync it with our database<br />
 ```
 
 from django.db import models
-
 import uuid 
-
 from datetime import datetime
-
 from cassandra.cqlengine import columns
-
 from django_cassandra_engine.models import DjangoCassandraModel
 
 ```
 
-
 ###### Create your models here.<br />
 ```
-
-
 class PostModel(DjangoCassandraModel):<br />
     id = columns.UUID(primary_key=True, default=uuid.uuid4) <br />
     title = columns.Text(required=True)<br />
