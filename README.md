@@ -18,7 +18,7 @@
 * Download the token and move it to the root directory.<br />
 
 
-###### Open this project in any IDE of your choice<br />
+**Open this project in any IDE of your choice ** <br />
 
 #healthblog>Settings.py<br />
 
