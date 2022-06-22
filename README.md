@@ -147,7 +147,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’),
 STATICFILES_DIRS = (os.path.join(BASE_DIR, ‘static’)
 ```
 
-* Create a new file in the app: <urls.py> to specify the URLs <br />
+* Create a new file in the app: <urls.py> to specify the URLs and configure the views accordingly<br />
 
 ```
 from django.urls import path
@@ -198,7 +198,7 @@ urlpatterns = [
 ]
 ```
 
-*To run the project execute the below command:
+* To run the project execute the command:
 ```
 Python3 manage.py rumserver
 ```
