@@ -1,5 +1,5 @@
 # HealthBlog
-###### Prerequisites<br />
+## Prerequisites<br />
 * AstraDB - Create a new Database 
 * Download 'django-cassandra-engine' from (https://pypi.org/project/django-cassandra-engine/)   
 >Pip3 install django-cassandra-engine
