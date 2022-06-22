@@ -82,6 +82,7 @@ from django_cassandra_engine.models import DjangoCassandraModel
 
 
 ###### Create your models here.<br />
+```
 
 
 class PostModel(DjangoCassandraModel):<br />
@@ -89,6 +90,8 @@ class PostModel(DjangoCassandraModel):<br />
     title = columns.Text(required=True)<br />
     body = columns.Text(required=True)<br />
     created_at = columns.DateTime(default=datetime.now)<br />
+    
+```
     
   
     
@@ -106,7 +109,9 @@ Syncing blog.models.PostModel
 ````
 <br />
 
-* Now we can try by running a query from Astra CQL console:<br />
+* Now we can try by running a query from Astra CQL console:
+
+
 
 
 use healthblog;
