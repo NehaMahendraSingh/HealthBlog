@@ -3,7 +3,7 @@
 * AstraDB - Create a new Database 
 * Download 'django-cassandra-engine' from (https://pypi.org/project/django-cassandra-engine/)   
 >Pip3 install django-cassandra-engine
-#Allows us to integrate Cassandra with Django
+
 
 ## Building a Django Project<br />
 * Start a new Django project “healthblog”- django-admin startproject healthblog<br />
