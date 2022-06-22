@@ -40,28 +40,21 @@ In the INSTALLED_APPS section - <br />
 
 ```
 ‘ENGINE’ : ‘django-cassandra-engine'
-
 ‘NAME’ : ('key-space') from the database
 ```
 
 #connect using client ID and secret from the token we saved in the root directory<br />
 
 'OPTIONS': 
-
             'connection':
-	    
                 'auth_provider': PlainTextAuthProvider(('CLIENT ID', 'CLIENT SECRET’),
 		
 #Cloud - connect to the secure bundle we saved in the root directory
 
                 'cloud': {
-		
                     'secure_connect_bundle': 'secure-connect-healthblog.zip
-		    
                 }
-		
-            }
-	    
+            }   
         }
 	
 
