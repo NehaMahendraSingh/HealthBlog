@@ -6,8 +6,8 @@ Pip3 install django-cassandra-engine
 #Allows us to integrate Cassandra with Django
 
 **Building a Django Project
-1) Start a new Django project “healthblog”- django-admin startproject healthblog
-2) Create a new app called “blog” from the root directory of the project - django-admin startapp blog.
+1) Start a new Django project “healthblog”- django-admin startproject healthblog<br />
+2) Create a new app called “blog” from the root directory of the project - django-admin startapp blog.<br />
 
 **Connect Database with our Django project**
 1)Connect using the Python driver. 
