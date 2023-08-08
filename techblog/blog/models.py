@@ -8,5 +8,5 @@ from django_cassandra_engine.models import DjangoCassandraModel
 class PostModel(DjangoCassandraModel):
     id = columns.UUID(primary_key=True, default=uuid.uuid4)
     title = columns.Text(required=True)
-    body = columns.Text(required=True)
+    body = columns.Text(required=False)
     created_at = columns.DateTime(default=datetime.now)
