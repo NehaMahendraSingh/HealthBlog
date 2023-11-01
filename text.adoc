@@ -19,6 +19,7 @@ There are 2 Major steps
 . Engine Upgrade
 
 . Node Upgrade
+image:HealthBlog/images/img1.png
 
 
 == Step 1 - update Engine
