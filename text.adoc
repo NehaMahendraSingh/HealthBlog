@@ -54,6 +54,7 @@ Note: we cannot upgrade version N to N+2, it has to go from version N to N+1 and
 . Check for the label in Advanced section labelFlag='--node-labels=node.kubernetes.io/requested_role=worker'
 . Click on ‘Create template version’
 Once above is done we can start the node upgrades on the cluster following below steps 
+
 == Step 2: Node Upgrade
 
 ==== Step1: Login to the cluster and list the nodes not on the target version, e.g. if your target version is 1.23:
