@@ -20,13 +20,6 @@ There are 2 Major steps
 
 . Node Upgrade
 
-image:images/img_1.png[img_1.png]
-
-![image info](./images/img_1.png) 
-
-<img src="HealthBlog/images/img_1.png">
-
-
 == Step 1 - update Engine
 [,shell]
 ----
