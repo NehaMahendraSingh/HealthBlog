@@ -143,6 +143,7 @@ kubectl delete pod <pod-name> -n teleport-agent
 
 
 CHECKS:
+
 . Grafana dashboards
 . SLA Health Checker Dashboard Monitoring
 Keep the SLA Healthchecker Dashboard open and monitor if there are prolonged errors
