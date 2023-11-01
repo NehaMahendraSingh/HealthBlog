@@ -21,7 +21,7 @@ There are 2 Major steps
 . Node Upgrade
 
 
-![img2.png](techblog/img2.png)
+![img1.png](HealthBlog/images/img1.png)
 
 == Step 1 - update Engine
 [,shell]
