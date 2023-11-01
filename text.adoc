@@ -20,7 +20,7 @@ There are 2 Major steps
 
 . Node Upgrade
 
-
+image:HealthBlog/images/img_1.png[img_1.png]
 ![img1.png](HealthBlog/images/img1.png)
 
 == Step 1 - update Engine
