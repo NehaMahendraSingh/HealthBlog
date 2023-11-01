@@ -67,7 +67,6 @@ Once above is done we can start the node upgrades on the cluster following below
 ----
 kc1 <env> aws <account>
 kubectl get node -o wide | grep -v '1.23'
-[,shell]
 ----
 ==== Step2: Execute Kubectl cordon nodes for each node:
 ----
