@@ -11,6 +11,7 @@ Below process will help you to upgrade a AWS Classic Cluster Safely
 . CCM has been created and approved for the changes 
 . You have access to AWS cluster from Console ( eg dmc-prod , dmc-staging , dmc-dev)
 . You have Cluster access from terminal eg kc1 prod && kubectl get nodes
+. Post in #cloud-alerts
 
 == Steps
 
@@ -149,7 +150,8 @@ kubectl delete pod <pod-name> -n teleport-agent
 ###2 SLA Health Checker Dashboard Monitoring
 Keep the SLA Healthchecker Dashboard open and monitor if there are prolonged errors
 
-[datadog] (https://app.datadoghq.com/dashboard/rwj-2yk-6gs/astra-slo-data?fullscreen_end_ts=1698818054898&fullscreen_paused=false&fullscreen_refresh_mode=sliding&fullscreen_section=overview&fullscreen_start_ts=1698814454898&fullscreen_widget=513595057186032&refresh_mode=sliding&from_ts=1698817144067&to_ts=1698818044067&live=true)
+Data (https://app.datadoghq.com/dashboard/rwj-2yk-6gs/astra-slo-data?fullscreen_end_ts=1698818054898&fullscreen_paused=false&fullscreen_refresh_mode=sliding&fullscreen_section=overview&fullscreen_start_ts=1698814454898&fullscreen_widget=513595057186032&refresh_mode=sliding&from_ts=1698817144067&to_ts=1698818044067&live=true)
+
 
 == Step 7 Completion Notification
 
@@ -158,6 +160,8 @@ Mark the Task Completed and update the status and issues faced
 Mark the CCM Completed
 
 Update DBPE team in slack channel #astra-serverless-on-call
+
+
 
 
 
