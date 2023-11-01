@@ -65,7 +65,7 @@ kubectl get node -o wide | grep -v '1.23'
 ----
 ==== Step2: Execute Kubectl cordon nodes for each node:
 ----
-for i in `kubectl get nodes | grep -v <target eks version>' | awk '{print $1}'`; do kubectl cordon $i; done
+for i in `kubectl get nodes | grep -v NAME | awk '{print $1}'`; do kubectl cordon $i; done
 ----
 
 ==== Step3: go to the relevant cluster ASG and make the desired node count twice of the existing and wait for the new nodes to come Ready
