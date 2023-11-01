@@ -24,6 +24,8 @@ image:images/img_1.png[img_1.png]
 
 ![image info](./images/img_1.png) 
 
+<img src="images/img_1.png">
+
 
 == Step 1 - update Engine
 [,shell]
