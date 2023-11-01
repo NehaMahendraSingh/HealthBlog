@@ -149,7 +149,7 @@ kubectl delete pod <pod-name> -n teleport-agent
 ###2 SLA Health Checker Dashboard Monitoring
 Keep the SLA Healthchecker Dashboard open and monitor if there are prolonged errors
 
-https://app.datadoghq.com/dashboard/rwj-2yk-6gs/astra-slo-data?fullscreen_end_ts=1663050250179&fullscreen_paused=false&fullscreen_section=overview&fullscreen_start_ts=1663046650179&fullscreen_widget=4428560398224910&from_ts=1663049332221&to_ts=1663050232221&live=true
+https://app.datadoghq.com/dashboard/rwj-2yk-6gs/astra-slo-data?refresh_mode=sliding&from_ts=1698817115641&to_ts=1698818015641&live=true
 
 == Step 7 Completion Notification
 
