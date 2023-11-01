@@ -1,0 +1,164 @@
+= Updating AWS Classic cluster
+== Overview
+
+The aws classic clusters have to be upgraded to keep cluster compliant.
+
+Below process will help you to upgrade a AWS Classic Cluster Safely
+
+== Prerequisites
+
+. You have a ticket assigned to upgrade a cluster node pool version
+. CCM has been created and approved for the changes 
+. You have access to AWS cluster from Console ( eg dmc-prod , dmc-staging , dmc-dev)
+. You have Cluster access from terminal eg kc1 prod && kubectl get nodes
+
+== Steps
+
+There are 2 Major steps
+
+. Engine Upgrade
+
+. Node Upgrade
+
+image:images/img_1.png[img_1.png]
+
+![image info](./images/img_1.png) 
+
+<img src="HealthBlog/images/img_1.png">
+
+
+== Step 1 - update Engine
+[,shell]
+----
+kc1 <env> aws <cluster_uuid> 
+kubectl get nodes -owide -w
+----
+
+IMPORTANT NOTE!!!: what happens if the cluster is multiregion(MR) and we need to upgrade all datacenters?
+In that case, each dc will have its own cloud_account + region,so we can get that info from Orchestrator DB
+Run [get-cluster-metadata.sh](../../common/utils/get-cluster-metadata.sh) to find the cluster metadata for the cluster 
+
+```shell
+./get-cluster-metadata.sh -e <env> -c <cluster_uuid_dc-N>
+```
+So with this info we execute the EKS (Engine) upgrade and can create the new template as explained below
+
+. Once you have the cluster metadata,open AWS SSO chiclet from okta and search for the account
+. Go to EKS (Elastic Kubernetes Service) for the cluster that needs to be upgraded (remember to select its region).
+. Once in EKS Cluster Engine, click upgrade and upgrade to the targeted version i.e. v1.23 (estimated time is 20-30 mins)
+  Wait until the upgrade is complete - once we upgrade a version it will push a notification on top
+
+Note: we cannot upgrade version N to N+2, it has to go from version N to N+1 and then from N+1 to N+2
+
+. Go to Launch Template in EC2
+. Check the cluster and pick the template which matches the first few characters of the UUID of the cluster
+. Select latest version
+
+. Click on Actions and click on ‘Modify template’
+. Search for the AMI by clicking on ‘Browse more AMIs’ - click on community ami and select amazon-eks-node-1.23-v20230304 (targeted version v1.23)
+. Scroll to ‘Storage (volumes)’ section Expand Volume 1 and Change the 'Size (GiB)' to 100 GB from its default value (20) and Change "Encryption" to 'Don't include in launch template'
+. Check for the label in Advanced section labelFlag='--node-labels=node.kubernetes.io/requested_role=worker'
+. Click on ‘Create template version’
+Once above is done we can start the node upgrades on the cluster following below steps 
+
+
+==== Step1: Login to the cluster and list the nodes not on the target version, e.g. if your target version is 1.23:
+[,shell]
+----
+kc1 <env> aws <account>
+kubectl get node -o wide | grep -v '1.23'
+[,shell]
+----
+==== Step2: Execute Kubectl cordon nodes for each node:
+----
+for i in `kubectl get nodes | grep -v NAME | awk '{print $1}'`; do kubectl cordon $i; done
+----
+
+==== Step3: go to the relevant cluster ASG and make the desired node count twice of the existing and wait for the new nodes to come Ready
+[,shell]
+----
+kubectl get node -o wide | grep -v '<target eks version>' | grep Running"
+----
+
+Once the new nodes are up in the targeted version - we can start a rollout restart of pods.
+
+On a fresh terminal run `kubectl get pods -owide -w` to monitor the pods 
+
+==== Step4: Execute a rolling restart of DSE nodes/pods
+[,shell]
+----
+for pod in $(kubectl  get po | grep caas-cluster-dc | awk '{print $1}'); do kubectl exec -it $pod -c cassandra — nodetool flush; done
+----
+Note: deamonset ingress and fluent bit will rollout restart with dse pods
+
+rollout restart the statefulset (one by one and one rack at a time)
+
+eg:
+[,shell]
+----
+kubectl rollout restart sts caas-cluster-dc-1-rack0
+----
+Make sure rack 0 has all pods up and running before moving to next one
+
+==== Step5: Once all the DSE pods are running, do a rolling restart on Stargate pods
+[,shell]
+----
+kubectl rollout restart sts stargate
+----
+Wait until all Stargete pods are restarted before movig to the next stateful set
+
+. Execute rolling restart on Vector 
+[,shell]
+----
+kubectl rollout restart sts vector
+----
+
+==== Step6: Execute rolling restart of other pods in the cluster
+Make sure all pods are up and running after every restart
+[,shell]
+----
+kubectl rollout restart deploy cmd-processor fluent-bit webcql
+----
+[,shell]
+----
+kubectl rollout restart deploy cass-operator grafana
+----
+[,shell]
+----
+kubectl rollout restart deploy opa prometheus
+----
+[,shell]
+----
+kubectl rollout restart deploy astra-operator
+----
+
+==== Step7: Execute a rolling restart on core-dns, One at a time delete each coredns pod
+[,shell]
+----
+kubectl get po -n kube-system | grep coredns 
+----
+
+==== Step8: Delete teleport pod 
+[,shell]
+----
+kubectl get pod -n teleport-agent
+
+kubectl delete pod <pod-name> -n teleport-agent
+----
+
+
+
+
+
+==== FINAL CHECKS:
+. SLA CHECKER
+. Grafana dashboards
+
+
+
+
+
+
+
+
+
