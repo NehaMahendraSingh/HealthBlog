@@ -141,13 +141,9 @@ kubectl delete pod <pod-name> -n teleport-agent
 
 
 
-
-
-==== FINAL CHECKS:
-. SLA CHECKER
+CHECKS:
 . Grafana dashboards
-
-###2 SLA Health Checker Dashboard Monitoring
+. SLA Health Checker Dashboard Monitoring
 Keep the SLA Healthchecker Dashboard open and monitor if there are prolonged errors
 
 Data (https://app.datadoghq.com/dashboard/rwj-2yk-6gs/astra-slo-data?fullscreen_end_ts=1698818054898&fullscreen_paused=false&fullscreen_refresh_mode=sliding&fullscreen_section=overview&fullscreen_start_ts=1698814454898&fullscreen_widget=513595057186032&refresh_mode=sliding&from_ts=1698817144067&to_ts=1698818044067&live=true)
