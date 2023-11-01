@@ -22,7 +22,7 @@ There are 2 Major steps
 
 
 image:HealthBlog/images/img1.png
-
+![img1.png](HealthBlog/images/img1.png)
 
 == Step 1 - update Engine
 [,shell]
