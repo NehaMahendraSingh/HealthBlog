@@ -156,7 +156,7 @@ Mark the Task Completed and update the status and issues faced
 
 Mark the CCM Completed
 
-Update DBPE team in slack channel #astra-serverless-on-call
+Update DBPE team in slack channel #pe-collab
 
 
 
