@@ -76,7 +76,7 @@ for i in `kubectl get nodes | grep -v <target eks version>' | awk '{print $1}'`;
 ==== Step3: go to the relevant cluster ASG and make the desired node count twice of the existing and wait for the new nodes to come Ready
 [,shell]
 ----
-kubectl get nodes -o wide -w"
+kubectl get nodes -o wide -w
 ----
 
 Once the new nodes are up in the targeted version - we can start a rollout restart of pods.
