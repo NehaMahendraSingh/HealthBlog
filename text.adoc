@@ -169,6 +169,20 @@ Mark the CCM Completed
 Update DBPE team in slack channel #pe-collab
 
 
+=== Troubleshooting
+1 DSE Pod in Pending State
+
+[,shell]
+----
+k get po --show-labels
+k get pod -L cassandra.datastax.com/node-state
+k label --overwrite po <pod_name> cassandra.datastax.com/node-state=Starting
+exec into that pod and run which will start the C* process
+
+curl --unix-socket /tmp/dse-mgmt.sock -X POST 'http://localhost/api/v0/lifecycle/start'
+k label --overwrite po <pod_name> cassandra.datastax.com/node-state=Started
+repeat for rest of the cass pods
+----
 
 
 
