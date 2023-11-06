@@ -170,9 +170,9 @@ Update DBPE team in slack channel #pe-collab
 
 
 === Troubleshooting
-1 DSE Pod in Pending State for ~10 minutes
+===== DSE Pod in Pending State for ~10 minutes
 
-Check for the labels. If they are in ReadytoStart we need to overwrite to Starting
+1. Check for the labels. If they are in ReadytoStart we need to overwrite to Starting
 
 [,shell]
 ----
@@ -186,7 +186,7 @@ k label --overwrite po <pod_name> cassandra.datastax.com/node-state=Started
 repeat for rest of the cass pods
 ----
 
-Compare the capacity of the new nodes with the cordoned ones. 
+2. Compare the capacity of the new nodes with the cordoned ones. 
 Go to the relevant cluster ASG and click on Instance management to check the instance type.
 Please make sure the new nodes are of the same instance type as the cordoned nodes.
 
