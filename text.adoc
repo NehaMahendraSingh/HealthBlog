@@ -170,7 +170,9 @@ Update DBPE team in slack channel #pe-collab
 
 
 === Troubleshooting
-1 DSE Pod in Pending State
+1 DSE Pod in Pending State for ~10 minutes
+
+Check for the labels. If they are in ReadytoStart we need to overwrite to Starting
 
 [,shell]
 ----
@@ -183,6 +185,24 @@ curl --unix-socket /tmp/dse-mgmt.sock -X POST 'http://localhost/api/v0/lifecycle
 k label --overwrite po <pod_name> cassandra.datastax.com/node-state=Started
 repeat for rest of the cass pods
 ----
+
+Compare the capacity of the new nodes with the cordoned ones. 
+Go to the relevant cluster ASG and click on Instance management to check the instance type.
+Please make sure the new nodes are of the same instance type as the cordoned nodes.
+
+To correct the instance types, we can launch new AMI template with the required changes
+
+. Go to Launch Template in EC2
+. Check the cluster and pick the template which matches the first few characters of the UUID of the cluster
+. Select latest version
+. Click on Actions and click on ‘Modify template’
+. Make sure the AMI is in targeted version
+. Scroll to Instance type and choose the right one
+. Double check the storage and label in Advanced section
+. Click on ‘Create template version’
+
+Now delete the new nodes with capacity restrictions and repeat step3
+
 
 
 
