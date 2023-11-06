@@ -170,9 +170,9 @@ Update DBPE team in slack channel #pe-collab
 
 
 === Troubleshooting
-==== DSE Pod in Pending State for ~10 minutes
+1 DSE Pod in Pending State for ~10 minutes
 
-===== Check for the labels. If they are in ReadytoStart we need to overwrite to Starting
+==== Check for the labels. If they are in ReadytoStart we need to overwrite to Starting
 
 [,shell]
 ----
@@ -186,7 +186,7 @@ k label --overwrite po <pod_name> cassandra.datastax.com/node-state=Started
 repeat for rest of the cass pods
 ----
 
-===== Compare the capacity of the new nodes with the cordoned ones. 
+==== Compare the capacity of the new nodes with the cordoned ones. 
 Go to the relevant cluster ASG and click on Instance management to check the instance type.
 Please make sure the new nodes are of the same instance type as the cordoned nodes.
 
@@ -203,15 +203,21 @@ To correct the instance types, we can launch new AMI template with the required 
 
 Now delete the new nodes with capacity restrictions and repeat step3
 
+==== Corrupt sstables
+If you see the below errors in the pod logs 
 
+```
 
+INFO  [pool-2-thread-1] 2023-11-01 19:07:17,921 LifecycleResources.java:144 - Started DSE                                                                                                                                                                  │
+│ INFO  [nioEventLoopGroup-2-2] 2023-11-01 19:07:23,837 UnixSocketCQLAccess.java:88 - Cannot create internal Driver CQLSession as the driver socket has not been created. This should resolve once DSE has started and created the socket at /tmp/dse.sock   │
+│ INFO  [nioEventLoopGroup-2-2] 2023-11-01 19:07:33,831 UnixSocketCQLAccess.java:88 - Cannot create internal Driver CQLSession as the driver socket has not been created. This should resolve once DSE has started and created the socket at /tmp/dse.sock   │
 
+```
 
+check debug.log file by going into the pod /var/log/cassandra and move the corrupt sstable out
 
+eg :
 
-
-
-
-
-
-
+```
+mv /var/lib/cassandra/data/eventprocessing/event_audit_log-9ce6cc904dc911edba032b7aa982ac2d/.event_changed_attr_entry_idx/bb-80-bti-Data.db .
+```
